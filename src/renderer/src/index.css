@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  ::selection {
+    @apply bg-mark text-ink;
+  }
+
+  /* Windows-native feeling scrollbars, kept thin so dense lists stay readable. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border: 3px solid transparent;
+    background-clip: content-box;
+    border-radius: 999px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  .label-xs {
+    @apply text-2xs font-semibold uppercase tracking-[0.14em];
+  }
+
+  .panel-dark {
+    --scrollbar-thumb: #3a414b;
+    --scrollbar-thumb-hover: #4d555f;
+  }
+
+  .panel-light {
+    --scrollbar-thumb: #cdc8bb;
+    --scrollbar-thumb-hover: #b3ada0;
+  }
+}
+
+:root {
+  --scrollbar-thumb: #cdc8bb;
+  --scrollbar-thumb-hover: #b3ada0;
+}
